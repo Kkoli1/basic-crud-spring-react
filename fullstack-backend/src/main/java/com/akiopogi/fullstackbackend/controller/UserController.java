@@ -27,4 +27,11 @@ public class UserController {
     List<User> getAllUsers(){
         return userRepository.findAll();
     }
+
+    @DeleteMapping("/delete/{userId}")
+    void deleteUser(@PathVariable Long userId){
+        userRepository.deleteById(userId);
+        System.out.println("Delete: " + userId);
+
+    }
 }
